@@ -7,6 +7,7 @@ import {
   Box
 } from '@chakra-ui/react';
 
+import TeacherAccordianItem from './TeacherAccordianItem'
 import TimeRangePicker from './TimeRangePicker'
 
 export default function TeachersAccordian(){
@@ -26,20 +27,7 @@ export default function TeachersAccordian(){
 	    </AccordionPanel>
 	  </AccordionItem>
 
-	  <AccordionItem>
-	    <h2>
-	      <AccordionButton>
-		<Box flex='1' textAlign='left'>
-	  	  John Doe
-		</Box>
-		<AccordionIcon />
-	      </AccordionButton>
-	    </h2>
-	    <AccordionPanel pb={4}>
-	      <h3>+ Unscheduled block</h3>
-	      <TimeRangePicker />
-	    </AccordionPanel>
-	  </AccordionItem>
+	  <TeacherAccordianItem />
 	</Accordion>
   );
 }
