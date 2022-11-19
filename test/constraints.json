@@ -1,0 +1,140 @@
+{
+  "schoolwide_constraint": {
+    "school_in_session": {
+      "mon": [
+        {
+          "start_time": 510,
+          "end_time": 900
+        }
+      ],
+      "tues": [
+        {
+          "start_time": 510,
+          "end_time": 900
+        }
+      ],
+      "wed": [
+        {
+          "start_time": 510,
+          "end_time": 900
+        }
+      ],
+      "thurs": [
+        {
+          "start_time": 510,
+          "end_time": 900
+        }
+      ],
+      "fri": [
+        {
+          "start_time": 510,
+          "end_time": 900
+        }
+      ]
+    },
+    "recess_schedule": {
+      "mon": [
+        {
+          "start_time": 600,
+          "end_time": 660
+        }
+      ],
+      "tues": [
+        {
+          "start_time": 600,
+          "end_time": 660
+        }
+      ],
+      "wed": [
+        {
+          "start_time": 600,
+          "end_time": 660
+        }
+      ],
+      "thurs": [
+        {
+          "start_time": 600,
+          "end_time": 660
+        }
+      ],
+      "fri": [
+        {
+          "start_time": 600,
+          "end_time": 660
+        }
+      ]
+    },
+    "min_prep_duration": 20
+  },
+  "teacher_constraints": [
+    {
+      "teacher_id": 0,
+      "prep_minutes": 110,
+      "not_available_schedule": {
+        "mon": [
+          {
+            "start_time": 660,
+            "end_time": 720
+          }
+        ]
+      },
+      "work_schedule": {
+        "mon": [
+          {
+            "start_time": 510,
+            "end_time": 900
+          }
+        ],
+        "tues": [
+          {
+            "start_time": 510,
+            "end_time": 900
+          }
+        ],
+        "wed": [
+          {
+            "start_time": 510,
+            "end_time": 900
+          }
+        ],
+        "thurs": [
+          {
+            "start_time": 510,
+            "end_time": 900
+          }
+        ],
+        "fri": [
+          {
+            "start_time": 510,
+            "end_time": 900
+          }
+        ]
+      },
+      "is_prep": false,
+      "assigned_class": 0,
+      "preferences": {
+        "prep_time": {
+          "tues": [
+            {
+              "start_time": 780,
+              "end_time": 840
+            }
+          ],
+          "wed": [
+            {
+              "start_time": 780,
+              "end_time": 840
+            }
+          ],
+          "thurs": [
+            {
+              "start_time": 780,
+              "end_time": 840
+            }
+          ]
+        },
+        "prep_duration": 55
+      }
+    }
+  ]
+}
