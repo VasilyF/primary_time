@@ -7,6 +7,8 @@ import {
   Box
 } from '@chakra-ui/react';
 
+import TimeRangePicker from './TimeRangePicker'
+
 export default function TeachersAccordian(){
   return (
 	<Accordion allowToggle>
@@ -34,7 +36,8 @@ export default function TeachersAccordian(){
 	      </AccordionButton>
 	    </h2>
 	    <AccordionPanel pb={4}>
-	  	TODO: creating teacher-specific schedules
+	      <h3>+ Unscheduled block</h3>
+	      <TimeRangePicker />
 	    </AccordionPanel>
 	  </AccordionItem>
 	</Accordion>
