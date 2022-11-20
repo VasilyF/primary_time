@@ -32,19 +32,18 @@ export default function TeacherAccordianItem(){
     <AccordionPanel pb={4}>
 
 
-      <div> 
-        <SliderInput /> 
-      </div>
 
 
       <FormControl display='flex' alignItems='center'>
          <FormLabel htmlFor='is_prep' mb='0'>
-	  Is Prep Teacher: 
+	      Is Prep Teacher: 
          </FormLabel>
          <Switch id='is_prep' />
       </FormControl>
 
-
+      <div> 
+        <SliderInput /> 
+      </div>
 
       <div>
         <Button colorScheme='teal' variant='ghost'>
