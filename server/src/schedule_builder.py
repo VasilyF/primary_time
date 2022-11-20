@@ -9,7 +9,7 @@ Creates the most optimal weekly school schedule
 
 import pygad as pg
 import numpy as np
-from server.src.teacher_constraints import Comparator
+#from server.src.teacher_constraints import Comparator
 import teacher_constraints as tc
 #where ga standas for genetic algorithm
 #see https://pygad.readthedocs.io/en/latest/README_pygad_ReadTheDocs.html for more details
@@ -63,14 +63,13 @@ def fitness_function(solution, solution_index):
 
     return 0
 
+def get_schedule():
+    ga_instance = pg.GA(num_generations=10,
+                           num_parents_mating=2,
+                           sol_per_pop=90,
+                           num_genes=20,
+                           fitness_func=fitness_function,
+                           gene_space=[0, 1])
+    ga_instance.run()
 
-ga_instance = pg.GA(num_generations=10,
-                       num_parents_mating=2,
-                       sol_per_pop=90,
-                       num_genes=20,
-                       fitness_func=fitness_function,
-                       gene_space=[0, 1])
-ga_instance.run()
-
-#print(ga_instance.initial_population)
-print(ga_instance.population)
+    return ga_instance.population
