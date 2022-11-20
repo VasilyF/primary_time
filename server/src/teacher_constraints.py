@@ -117,13 +117,11 @@ class ScheduleData:
         dummy_teacher_ids = []
         id_mappings = {}
         
-        for i in range():
+        for id in range(len(dummy_teacher_ids)-1):
+            #first element in each teacher_constraints json should be their id
+            id_mappings[id] = dummy_teacher_ids[dummy_teacher_ids[id][0]]
 
-            id_mappings[i] = i
-        
-        return dummy_teacher_ids
-
-
+        self.teacher_ids = id_mappings 
 
 if __name__ == '__main__':
     """d = time_block_mapping()
