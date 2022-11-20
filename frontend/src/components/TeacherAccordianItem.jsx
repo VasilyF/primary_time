@@ -7,10 +7,16 @@ import {
   Button, 
   FormControl, 
   FormLabel, 
-  Switch
+  Switch,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
 } from '@chakra-ui/react';
 
 import TimeRangePicker from './TimeRangePicker'
+import SliderInput from './SliderInput'
 
 export default function TeacherAccordianItem(){
   return (
@@ -24,6 +30,12 @@ export default function TeacherAccordianItem(){
       </AccordionButton>
     </h2>
     <AccordionPanel pb={4}>
+
+
+      <div> 
+        <SliderInput /> 
+      </div>
+
 
       <FormControl display='flex' alignItems='center'>
          <FormLabel htmlFor='is_prep' mb='0'>
@@ -50,3 +62,4 @@ export default function TeacherAccordianItem(){
   </AccordionItem>
   );
 }
+
