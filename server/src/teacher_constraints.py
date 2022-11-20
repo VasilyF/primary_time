@@ -1,6 +1,8 @@
 import requests
 class Comparator:
-    def __init__(self,data:list) -> None:
+    """
+    """
+    def __init__(self,scheduleData) -> None:
         """
         data : [
             prep = {teacher_id : max_prep_time},
@@ -10,7 +12,7 @@ class Comparator:
         ]
         
         """
-        self.data=data
+        self.data=scheduleData
         self.prep_times={}
         self.class_times={}
         self.minutes_worked={}
