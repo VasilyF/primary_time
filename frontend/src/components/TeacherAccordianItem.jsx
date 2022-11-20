@@ -3,10 +3,13 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-  Box
+  Box,
+  Button, 
+  FormControl, 
+  FormLabel, 
+  Switch
 } from '@chakra-ui/react';
 
-import { Button } from '@chakra-ui/react'
 import TimeRangePicker from './TimeRangePicker'
 
 export default function TeacherAccordianItem(){
@@ -21,6 +24,16 @@ export default function TeacherAccordianItem(){
       </AccordionButton>
     </h2>
     <AccordionPanel pb={4}>
+
+      <FormControl display='flex' alignItems='center'>
+         <FormLabel htmlFor='is_prep' mb='0'>
+	  Is Prep Teacher: 
+         </FormLabel>
+         <Switch id='is_prep' />
+      </FormControl>
+
+
+
       <div>
         <Button colorScheme='teal' variant='ghost'>
           Working
