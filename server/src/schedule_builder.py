@@ -9,23 +9,26 @@ Creates the most optimal weekly school schedule
 
 import pygad as pg
 import numpy as np
-#from server.src.teacher_constraints import Comparator
 import teacher_constraints as tc
+import teacher_definitions as td
 #where ga standas for genetic algorithm
 #see https://pygad.readthedocs.io/en/latest/README_pygad_ReadTheDocs.html for more details
 
 #should be the number of blocks with no conflict * number of teachers in the box
 def init_comparators():
     url = "API-ENDPOINT"
-    data = tc.transform_requests_data(url)
-    return tc.Comparator(data)
     
+    return tc.Comparator(url)
+    
+def init_data():
+    url = "API-ENDPOINT"
+    return tc.ScheduleData(url)
 
 def fitness_function(solution, solution_index):
 
     """
-    Assess the fitness of the population (set of schedules).
-    Compare the schedules of each teacher 
+    Assigns a score to each proposed schedule. Highest score = total blocks * number of teachers
+
     """
     comparator = init_comparators()
 
@@ -59,17 +62,46 @@ def fitness_function(solution, solution_index):
                 #check if a teacher is working a day they're not supposed to
                 return score
         
-        score+=5
+        score+=1
 
     return 0
 
-def get_schedule():
-    ga_instance = pg.GA(num_generations=10,
-                           num_parents_mating=2,
-                           sol_per_pop=90,
-                           num_genes=20,
-                           fitness_func=fitness_function,
-                           gene_space=[0, 1])
-    ga_instance.run()
 
-    return ga_instance.population
+def main():
+    
+    ga_instance = pg.GA(num_generations=10,
+                        num_parents_mating=2,
+                        sol_per_pop=90,
+                        num_genes=20,
+                        fitness_func=fitness_function,
+                        gene_space=[0, 1],
+                        save_solutions = True
+                        )
+    return ga_instance
+
+def output_best_schedule(schedule):
+    """
+    Translate the binary lists back into blocks for json format
+    """
+    schedule_data = init_data()
+    prescribed_schedule = {}
+    teacher_schedules = [td.Teacher(schedule_data.teacher_ids(i)) for i in range(len(schedule)-1)]
+        
+    for block_num in range(len(schedule)-1):
+        #use saved teacher id and block time mappings 
+        for teacher_id in range(len(schedule[block_num])-1):
+            if schedule[block_num][teacher_id] == 1: 
+                #if prep block
+                teacher_schedules[teacher_id].add_prep_block(schedule_data.time_blocks)
+            else:
+                teacher_schedules[teacher_id].add_class_block(schedule_data.time_blocks)
+
+    return prescribed_schedule
+
+if __name__ == '__main__':
+    
+    schedule_builder = main()
+    schedule_builder.run()
+    #print(ga_instance.initial_population)
+    print(schedule_builder.population)
+    schedule_builder.plot_fitness()
