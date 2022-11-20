@@ -16,9 +16,9 @@ import teacher_definitions as td
 
 #should be the number of blocks with no conflict * number of teachers in the box
 def init_comparators():
-    url = "API-ENDPOINT"
+    schedule_data = init_data()
     
-    return tc.Comparator(url)
+    return tc.Comparator(schedule_data)
     
 def init_data():
     url = "API-ENDPOINT"
@@ -83,6 +83,9 @@ def output_best_schedule(schedule):
     """
     Translate the binary lists back into blocks for json format
     """
+    schedule_builder = main()
+    schedule_builder.run()
+    schedule_builder.best_solutions_fitness()[0]
     schedule_data = init_data()
     prescribed_schedule = {}
     teacher_schedules = [td.Teacher(schedule_data.teacher_ids(i)) for i in range(len(schedule)-1)]
@@ -102,6 +105,7 @@ if __name__ == '__main__':
     
     schedule_builder = main()
     schedule_builder.run()
+
     #print(ga_instance.initial_population)
     print(schedule_builder.population)
     schedule_builder.plot_fitness()
